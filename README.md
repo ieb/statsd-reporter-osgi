@@ -1,6 +1,7 @@
 This provides a OSGi bundle that has a component shipping Dropwizard metrics out to StatsD over UDP.
 
 
+
 [![Build Status](https://travis-ci.org/ieb/statsd-reporter-osgi.svg?branch=master)](https://travis-ci.org/ieb/statsd-reporter-osgi)
 
 # Quick Setup for the impatient
