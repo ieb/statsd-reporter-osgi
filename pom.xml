@@ -118,13 +118,13 @@
         <dependency>
           <groupId>com.readytalk</groupId>
           <artifactId>metrics3-statsd</artifactId>
-          <version>4.2.0</version>
+          <version>4.2.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.readytalk</groupId>
             <artifactId>metrics-statsd-common</artifactId>
-            <version>4.2.0</version>
+            <version>4.2.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
