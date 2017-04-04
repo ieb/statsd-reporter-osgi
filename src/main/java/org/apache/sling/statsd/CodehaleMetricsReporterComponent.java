@@ -68,6 +68,7 @@ public class CodehaleMetricsReporterComponent {
         String server = (String) properties.get(STATSD_SERVER);
         int port = (int) properties.get(STATSD_PORT);
         reporter = StatsDReporter.forRegistry(metricRegistry)
+                .prefixedWith(getHostName())
                 .build(server,port);
         reporter.start(5, TimeUnit.SECONDS);
         LOG.info("Started Statsd Metrics reporter to {}:{}  ", new Object[]{server, port});
