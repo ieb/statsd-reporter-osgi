@@ -58,6 +58,8 @@ public class CodehaleMetricsReporterComponent {
     public static final String STATSD_SERVER = "host";
     @Property(intValue = 8125, description = "The port of the statsd db server")
     public static final String STATSD_PORT = "port";
+    @Property(intValue = 5, description = "The period in seconds the reporter reports at")
+    public static final String REPORT_PERIOD = "period";
 
     private ConcurrentMap<String, CopyMetricRegistryListener> listeners = new ConcurrentHashMap<String, CopyMetricRegistryListener>();
     private MetricRegistry metricRegistry = new MetricRegistry();
@@ -67,10 +69,11 @@ public class CodehaleMetricsReporterComponent {
         LOG.info("Starting Statsd Metrics reporter ");
         String server = (String) properties.get(STATSD_SERVER);
         int port = (int) properties.get(STATSD_PORT);
+        int period = (int) properties.get(REPORT_PERIOD);
         reporter = StatsDReporter.forRegistry(metricRegistry)
                 .prefixedWith(getHostName())
                 .build(server,port);
-        reporter.start(5, TimeUnit.SECONDS);
+        reporter.start(period, TimeUnit.SECONDS);
         LOG.info("Started Statsd Metrics reporter to {}:{}  ", new Object[]{server, port});
     }
 
